@@ -1,0 +1,1382 @@
+-----------------------------Version-1App.js-----------------------------------------------------
+function App() { 
+  return ( 
+    <div className="App"> 
+      <h1>This is my React App</h1> 
+      <p>This is my program.Iam currently learning React JS</p> 
+      <p>Because I want to develop applications that calls Rest API's</p> 
+    </div> 
+  ); 
+}
+--------------------Version#1 Header.js--------------------------------------------------
+export const Header=()=>{
+    return(
+        <div>
+            <h1>
+                Header
+           </h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+----------------------------App.js#version-2---------------------------------------------- 
+function App() {
+  return (
+    <div className="App">
+      <Header/>
+      <hr/>
+      <Header/>
+      <hr/>
+      <h1>This is my React App</h1>
+      <p>This is my program.Iam currently learning React JS</p>
+      <p>Because I want to develop applications that calls Rest API's</p>
+      <Header/>
+    </div>
+  );
+------------------------------------Version-2Header.js-------------------------------------
+export const Header=()=>{
+    return(
+        <div style={{background:"red"}}>
+            <h1>
+                Header
+           </h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+----------------------------Version-3 Header.js----------------------------------------------
+export const Header=()=>{
+    return(
+        <div style={{background:"yellow",padding:20}}>
+            <h1>
+                Header
+           </h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+-------------------------------Version-4 Header.js------------------------------------------
+export const Header=()=>{
+    return(
+        <div style={{background:"yellow",padding:20}}>
+            <h1>
+                Header
+           </h1>
+           <h1>D.Fatima</h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+------------------------Working with props App.js----------------------------------------
+function App() {
+  return (
+    <div className="App">
+      <Header name="D.Fatima"/>
+      <hr/>
+      <Header name="A.Fathima"/>
+      <hr/>
+      <h1>This is my React App</h1>
+      <p>This is my program.Iam currently learning React JS</p>
+      <p>Because I want to develop applications that calls Rest API's</p>
+      <Header name="R.Fathima"/>
+    </div>
+  );
+}
+------------------------Working with props(desctructuring) Header.js-------------------------
+export const Header=({name})=>{
+    return(
+        <div style={{background:"yellow",padding:20}}>
+            <h1>
+                Header
+           </h1>
+           <h1>{name}</h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+------------------Working with props(without destructuring)Header.js--------------------------
+export const Header=(props)=>{
+    return(
+        <div style={{background:"yellow",padding:20}}>
+            <h1>
+                Header
+           </h1>
+           <h1>{props.name}</h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+--------------------App.js-----------------------------------------------------------------
+function App() {
+  return (
+    <div className="App">
+      <Header name="D.Fatima" title="First Card"/>
+      <hr/>
+      <Header name="A.Fathima" title="Second Card"/>
+      <hr/>
+      <h1>This is my React App</h1>
+      <p>This is my program.Iam currently learning React JS</p>
+      <p>Because I want to develop applications that calls Rest API's</p>
+      <Header name="R.Fathima" title="Last Card"/>
+    </div>
+  );
+}
+-----------------------Header.js-------------------------------------------------------------
+
+export const Header=({name,title})=>{
+    return(
+        <div style={{background:"yellow",padding:20}}>
+            <h1>
+               {title}
+           </h1>
+           <h1>{name}</h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+----------------------------Header.js-----------------------------------------------------
+
+export const Header=(props)=>{
+    return(
+        <div style={{background:"yellow",padding:20}}>
+            <h1>
+               {props.title}
+           </h1>
+           <h1>{props.name}</h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+------------------------Header.js----------------------------------------------------------
+
+export const Header=({name,title})=>{
+    return(
+        <div style={{background:"yellow",padding:20,width:400}}>
+            <h1>
+               {title}
+           </h1>
+           <h1>{name}</h1>
+           <p>This is header component for learning purpose</p>
+        </div>
+    )
+}
+-------------------------App.js-----------------------------------------------------------
+// import logo from './logo.svg';
+import './App.css';
+import { Header } from './components/Header';
+
+function App() {
+  return (
+    <div className="App">
+      <Header name="D.Fatima" title="First Card"/>
+      <hr/>
+      <Header name="A.Fathima" title="Second Card"/>
+      <hr/>
+      <h1>This is my React App</h1>
+      <p>This is my program.Iam currently learning React JS</p>
+      <p>Because I want to develop applications that calls Rest API's</p>
+      <Header name="R.Fathima" title="Last Card"/>
+      <hr/>
+      <Header name="S.Fathima" title="Footer"/>
+    </div>
+  );
+}
+--------------------------------Installing bootstrap,reactstrap-----------------------------
+c:\react\courses-app>npm install bootstrap reactstrap
+-----------------------------------App.js Button Control---------------------------------
+import {Button} from 'reactstrap'
+
+function App() {
+  return (
+    <div className="App">
+      <h1>This is bootstrap Components</h1>
+      <Button color="primary">First React Button</Button>
+    </div>
+  );
+}
+---------------------------------------------------------------------------------------------
+import {Button} from 'reactstrap'
+
+function App() {
+  return (
+    <div className="App">
+      <h1>This is bootstrap Components</h1>
+      <Button color="warning">First React Button</Button>
+    </div>
+  );
+}
+----------------------------------------------------------------------------------------
+import {Button} from 'reactstrap'
+
+function App() {
+  return (
+    <div className="App">
+      <h1>This is bootstrap Components</h1>
+      <Button color="warning" outline>First React Button</Button>
+    </div>
+  );
+}
+-----------------------------------Installing ReactToastify--------------------------------
+npm install react-toastify
+-----------------------------------------Working with toast---------------------------------
+import {ToastContainer,toast} from 'react-toastify'
+
+function App() {
+  const btnHandle=()=>{
+    toast("This is my first message")
+  }
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <h1>This is bootstrap Components</h1>
+      <Button color="warning" outline onClick={btnHandle}>First React Button</Button>
+      
+    </div>
+  );
+}
+-----------------------------------------------------------------------------------------
+import {ToastContainer,toast} from 'react-toastify'
+
+function App() {
+  const btnHandle=()=>{
+    toast.success("Done",{position:'bottom-center'});
+  }
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <h1>This is bootstrap Components</h1>
+      <Button color="warning" outline onClick={btnHandle}>First React Button</Button>
+      
+    </div>
+  );
+}
+
+------------------------------------------------------------------------------------------
+import {ToastContainer,toast} from 'react-toastify'
+
+function App() {
+  const btnHandle=()=>{
+    toast.error("Done",{position:'bottom-center'});
+  }
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <h1>This is bootstrap Components</h1>
+      <Button color="warning" outline onClick={btnHandle}>First React Button</Button>
+      
+    </div>
+  );
+}
+-------------------------------Installing axios------------------------------------------
+npm install axios
+------------------------------Building of App Starts Home.js--------------------------------------
+import {Alert} from 'reactstrap'
+export const Home= ()=>{
+    return(
+        <div>
+            <Alert color="secondary">
+             <h1>Learn Developing App Using React</h1>
+             <p>This is developed by Advanced Auto Parts for learning purpose
+                backend is on spring boot and front end on reactjs
+             </p>
+            </Alert>
+        </div>
+    )
+}
+------------------------App.js--------------------------------------------------------------
+// import logo from './logo.svg';
+import './App.css';
+// import { Header } from './components/Header';
+// import {Button} from 'reactstrap'
+import {ToastContainer,toast} from 'react-toastify'
+import {Home} from './components/Home'
+function App() {
+  
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <Home/>
+      
+    </div>
+  );
+}
+export default App;
+----------------------------------Home.js----------------------------------------------
+import {Alert, Container,Button} from 'reactstrap'
+export const Home= ()=>{
+    return(
+        <div>
+            <Alert color="secondary">
+             <h1>Learn Developing App Using React</h1>
+             <p>This is developed by Advanced Auto Parts for learning purpose
+                backend is on spring boot and front end on reactjs
+             </p>
+             <Container>
+              <Button color='primary'>Start Using</Button>
+            </Container>
+            </Alert>
+        </div>
+    )
+}
+-----------------------------------------------------------------------------------------
+import {Alert, Container,Button} from 'reactstrap'
+export const Home= ()=>{
+    return(
+        <div>
+            <Alert color="secondary">
+             <h1 className='display-3'>Learn Developing App Using React</h1>
+             <p>This is developed by Advanced Auto Parts for learning purpose
+                backend is on spring boot and front end on reactjs
+             </p>
+             <Container>
+              <Button color='primary' outline>Start Using</Button>
+            </Container>
+            </Alert>
+        </div>
+    )
+}
+-----------------------------------Course Component---------------------------------------
+import {Card,CardBody,CardTitle,CardSubtitle,CardText,CardFooter,Button,Container} from 'reactstrap'
+
+export const Course = ()=>{
+
+    return(
+        <Card>
+            <CardBody>
+                <CardSubtitle style={{fontWeight:"bold"}}>
+                    Java Course
+                </CardSubtitle>
+                <CardText >
+                    It is a java course for beginners
+                </CardText>
+                <Container>
+                    <Button color="danger">Delete</Button>
+                    <Button color="warning" style={{marginLeft:5}}>Update</Button>
+                    
+                </Container>
+            </CardBody>
+        </Card>
+    )
+}
+-------------------------------------App.js-----------------------------------------------
+// import logo from './logo.svg';
+import './App.css';
+// import { Header } from './components/Header';
+// import {Button} from 'reactstrap'
+import {ToastContainer,toast} from 'react-toastify'
+import {Home} from './components/Home'
+import {Course} from './components/Course'
+function App() {
+  
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <Home/>
+      <Course/>
+      
+    </div>
+  );
+}
+export default App;
+-----------------------------------Making Title & Description Dynamic in Course------------
+import {Card,CardBody,CardTitle,CardSubtitle,CardText,CardFooter,Button,Container} from 'reactstrap'
+
+export const Course = ({course})=>{
+
+    return(
+        <Card>
+            <CardBody>
+                <CardSubtitle style={{fontWeight:"bold"}}>
+                    {course.title}
+                </CardSubtitle>
+                <CardText >
+                   {course.description}
+                </CardText>
+                <Container>
+                    <Button color="danger">Delete</Button>
+                    <Button color="warning" style={{marginLeft:5}}>Update</Button>
+                    
+                </Container>
+            </CardBody>
+        </Card>
+    )
+}
+-------------------------------App.js-------------------------------------------------------
+// import logo from './logo.svg';
+import './App.css';
+// import { Header } from './components/Header';
+// import {Button} from 'reactstrap'
+import {ToastContainer,toast} from 'react-toastify'
+import {Home} from './components/Home'
+import {Course} from './components/Course'
+function App() {
+  
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <Home/>
+      <Course course={{title:"Django Course",description:"This is just testing"}}/>
+      <Course course={{title:"Java Course",description:"This is just testing"}}/>
+      
+    </div>
+  );
+}
+export default App;
+-------------------------------------AllCourses.js--------------------------------------
+import {useState} from 'react'
+import {Course} from './Course'
+
+export const AllCourses=()=>{
+
+    const [courses,setCourses]= useState([
+        {title:"Java Course",description:"This is demo course"},
+        {title:"Django Course",description:"This is demo course"},
+        {title:"ReactJs Course",description:"This is demo course"},
+        {title:"Angular Course",description:"This is demo course"},
+
+    ])
+    return (
+  <div>
+    <h1>All Courses</h1>
+    <p>List of Courses are as follows</p>
+    {
+        courses.length>0?courses.map(
+            (item)=><Course course={item}/>
+        ):"No Courses"
+    }
+  </div>
+
+    )
+}
+---------------------------------------App.js--------------------------------------------
+// import logo from './logo.svg';
+import './App.css';
+// import { Header } from './components/Header';
+// import {Button} from 'reactstrap'
+import {ToastContainer,toast} from 'react-toastify'
+import {Home} from './components/Home'
+import {Course} from './components/Course'
+import {AllCourses} from './components/AllCourses'
+function App() {
+  
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <Home/>
+      <AllCourses/>
+      
+    </div>
+  );
+}
+export default App;
+---------------------------------------AddCourse.js---------------------------------------
+import { Fragment } from "react";
+import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
+
+export const AddCourse = () => {
+  return (
+    <Fragment>
+      <h1 className="my-3">Fill Course Detail</h1>
+      <Form>
+        <FormGroup>
+          <Label for="courseId">Course Id</Label>
+          <Input
+            type="text"
+            placeholder="Enter here"
+            name="courseId"
+            id="courseId"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="title">Course Title</Label>
+          <Input type="text" placeholder="Enter title here" id="title" />
+        </FormGroup>
+        <FormGroup>
+          <Label for="description">Course Description</Label>
+          <Input
+            type="textarea"
+            id="description"
+            placeholder="Enter description here"
+            style={{height:150}}
+          />
+        </FormGroup>
+        <Container>
+            <Button color="success">Add Course</Button>
+            <Button color="warning" style={{marginLeft:4}}>Clear</Button>
+        </Container>
+      </Form>
+    </Fragment>
+  );
+};
+
+--------------------------------------------App.js-----------------------------------------
+// import logo from './logo.svg';
+import './App.css';
+// import { Header } from './components/Header';
+// import {Button} from 'reactstrap'
+import {ToastContainer,toast} from 'react-toastify'
+import {Home} from './components/Home'
+import {Course} from './components/Course'
+import {AllCourses} from './components/AllCourses'
+import { AddCourse } from './components/AddCourse';
+function App() {
+  
+  return (
+    <div className="App">
+      <ToastContainer/>
+      <Home/>
+      <AllCourses/>
+      <AddCourse/>
+      
+    </div>
+  );
+}
+
+export default App;
+---------------------------------------React Router Installing react-router-dom----------
+npm install react-router-dom
+-----------------------------index.js-------------------------------------------------
+import { BrowserRouter } from "react-router-dom";
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+-------------------------------------App.js-------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+export default App;
+-----------------------------------------Menus.js------------------------------------------
+import { ListGroup, ListGroupItem } from "reactstrap"
+
+export const Menus=()=>{
+
+    return(
+        <ListGroup>
+            <ListGroupItem tag="a" href="/" action>Home</ListGroupItem>
+            <ListGroupItem tag="a" href="/add-course" action>Add Course</ListGroupItem>
+            <ListGroupItem tag="a" href="/view-courses" action>View Courses</ListGroupItem>
+            <ListGroupItem tag="a" href="#" action>About</ListGroupItem>
+            <ListGroupItem tag="a" href="#" action>Contact</ListGroupItem>
+        </ListGroup>
+        
+    )
+}
+------------------------------Menus.js-------------------------------------------------------
+import { ListGroup, ListGroupItem } from "reactstrap";
+import { Link } from "react-router-dom";
+
+export const Menus = () => {
+  return (
+    <ListGroup>
+      <Link className="list-group-item list-group-item-action" to="/" action>
+        Home
+      </Link>
+      <Link
+        className="list-group-item list-group-item-action"
+        to="/add-course"
+        action
+      >
+        Add Course
+      </Link>
+      <Link className="list-group-item list-group-item-action" to="#" action>
+        View Courses
+      </Link>
+      <Link className="list-group-item list-group-item-action" to="#" action>
+        Contact
+      </Link>
+      <Link className="list-group-item list-group-item-action" to="#" action>
+        About
+      </Link>
+    </ListGroup>
+  );
+};
+----------------------------------Active link Menus.js--------------------------------------
+import { ListGroup, ListGroupItem } from "reactstrap";
+import { NavLink } from "react-router-dom";
+
+export const Menus = () => {
+
+    const navLinkStyles=({isActive})=>{
+        return {
+            fontWeight:isActive?'bold':'normal',
+            textDecoration:isActive?'none':'underline',
+            fontSize:isActive?30:20
+        }
+  
+    }
+  return (
+    <ListGroup>
+      <NavLink style={navLinkStyles} to='/'>
+        Home
+      </NavLink>
+      <NavLink
+      style={navLinkStyles}
+        to="/add-course"
+       >
+        Add Course
+      </NavLink>
+      <NavLink style={navLinkStyles} to='/view-courses'>
+        View Courses
+      </NavLink>
+      <NavLink style={navLinkStyles} to='/contact'>
+        Contact
+      </NavLink>
+      <NavLink style={navLinkStyles} to='/about'>
+        About
+      </NavLink>
+    </ListGroup>
+  );
+};
+----------------------------------Navigate Programmatically OrderSummary.js----------
+export const OrderSummary=()=>
+{
+    return <div>Order Confirmed!</div>
+}
+-----------------------------------App.js-------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import {Contact } from './components/Contact'
+import {About} from './components/About'
+import {OrderSummary} from './components/OrderSummary'
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+              <Route path="contact" element={<Contact />} exact />
+              <Route path="about" element={<About />} exact />
+              <Route path="order-summary" element={<OrderSummary/>} exact/>
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+--------------------------------Menus.js-------------------------------------------------
+import { ListGroup, ListGroupItem ,Button} from "reactstrap";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+export const Menus = () => {
+    const navigate=useNavigate()
+
+    const navLinkStyles=({isActive})=>{
+        return {
+            fontWeight:isActive?'bold':'normal',
+            textDecoration:isActive?'none':'underline',
+            fontSize:isActive?30:20
+        }
+  
+    }
+  return (
+    <ListGroup>
+      <NavLink style={navLinkStyles} to='/'>
+        Home
+      </NavLink>
+      <NavLink
+      style={navLinkStyles}
+        to="/add-course"
+       >
+        Add Course
+      </NavLink>
+      <NavLink style={navLinkStyles} to='/view-courses'>
+        View Courses
+      </NavLink>
+      <NavLink style={navLinkStyles} to='/contact'>
+        Contact
+      </NavLink>
+      <NavLink style={navLinkStyles} to='/about'>
+        About
+      </NavLink>
+      <Button color='primary' onClick={()=>navigate('order-summary')}>Place Orders</Button>
+    </ListGroup>
+    
+  );
+};
+---------------------------NoMatch.js------------------------------------------------
+
+export const NoMatch=()=>{
+    return <div>Page Not Found</div>
+}
+-----------------------------------App.js-----------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import {Contact } from './components/Contact'
+import {About} from './components/About'
+import {OrderSummary} from './components/OrderSummary'
+import {NoMatch} from './components/NoMatch'
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+              <Route path="contact" element={<Contact />} exact />
+              <Route path="about" element={<About />} exact />
+              <Route path="order-summary" element={<OrderSummary/>} exact/>
+              <Route path="*" element={<NoMatch/>} exact/>
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+--------------------------------Nested Routes Courses.js-------------------------------
+import { Link } from "react-router-dom"
+
+export const Courses=()=>{
+
+    return (
+       <>
+        <div>
+            <input type='search' placeholder='Search courses'/>
+        </div>
+        <nav  style={{padding:20,fontSize:20}}>
+            <Link to='featured'>Featured</Link>
+            <Link to='new' style={{marginLeft:12}}>New</Link>
+
+        </nav>
+       </>
+    )
+}
+------------------------------------App.js--------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import {Contact } from './components/Contact'
+import {About} from './components/About'
+import {OrderSummary} from './components/OrderSummary'
+import {NoMatch} from './components/NoMatch'
+import { Courses } from "./components/Courses";
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+              <Route path="contact" element={<Contact />} exact />
+              <Route path="about" element={<About />} exact />
+              <Route path="order-summary" element={<OrderSummary/>} exact/>
+              <Route path='courses' element={<Courses/>}/>
+              <Route path="*" element={<NoMatch/>} exact/>
+              
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+--------------------------------------FeaturedCourses.js---------------------------
+export const FeaturedCourses=()=>{
+    return <div>
+        List of Featured Courses
+    </div>
+}
+-----------------------------NewCourses.js--------------------------------------------
+export const NewCourses=()=>{
+    return <div>
+        List of New Courses
+    </div>
+}
+---------------------------------Courses.js-----------------------------------------------
+import { Link, Outlet } from "react-router-dom";
+
+export const Courses = () => {
+  return (
+    <>
+      <div>
+        <input type="search" placeholder="Search courses" />
+      </div>
+      <nav style={{ padding: 20, fontSize: 20 }}>
+        <Link to="featured">Featured</Link>
+        <Link to="new" style={{ marginLeft: 12 }}>
+          New
+        </Link>
+      </nav>
+      <Outlet/>
+    </>
+  );
+};
+--------------------------------------App.js-----------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import {Contact } from './components/Contact'
+import {About} from './components/About'
+import {OrderSummary} from './components/OrderSummary'
+import {NoMatch} from './components/NoMatch'
+import { Courses } from "./components/Courses";
+import { FeaturedCourses } from "./components/FeaturedCourses";
+import {NewCourses} from './components/NewCourses'
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+              <Route path="contact" element={<Contact />} exact />
+              <Route path="about" element={<About />} exact />
+              <Route path="order-summary" element={<OrderSummary/>} exact/>
+              <Route path='courses' element={<Courses/>}>
+                <Route path='featured' element={<FeaturedCourses/>}/>
+                <Route path='new' element={<NewCourses/>}/>
+              </Route>
+              <Route path="*" element={<NoMatch/>} exact/>
+              
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+------------------------------Index Routes App.js--------------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import {Contact } from './components/Contact'
+import {About} from './components/About'
+import {OrderSummary} from './components/OrderSummary'
+import {NoMatch} from './components/NoMatch'
+import { Courses } from "./components/Courses";
+import { FeaturedCourses } from "./components/FeaturedCourses";
+import {NewCourses} from './components/NewCourses'
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+              <Route path="contact" element={<Contact />} exact />
+              <Route path="about" element={<About />} exact />
+              <Route path="order-summary" element={<OrderSummary/>} exact/>
+              <Route path='courses' element={<Courses/>}>
+                <Route index element={<FeaturedCourses/>}/>
+                <Route path='featured' element={<FeaturedCourses/>}/>
+                <Route path='new' element={<NewCourses/>}/>
+              </Route>
+              <Route path="*" element={<NoMatch/>} exact/>
+              
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+-------------------------------------Dynamic routes Users.js----------------------------
+ export const Users=()=>{
+    return(
+        <div>
+            <h2>User 1</h2>
+            <h2>User 2</h2>
+            <h2>User 3</h2>
+        </div>
+    )
+ }
+----------------------------UserDetails.js--------------------------------------
+export const UserDetails=()=>{
+    return <div>Details About User</div>
+}
+--------------------------App.js-------------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import {Contact } from './components/Contact'
+import {About} from './components/About'
+import {OrderSummary} from './components/OrderSummary'
+import {NoMatch} from './components/NoMatch'
+import { Courses } from "./components/Courses";
+import { FeaturedCourses } from "./components/FeaturedCourses";
+import {NewCourses} from './components/NewCourses'
+import { Users } from "./components/Users";
+import { UserDetails } from "./components/UserDetails";
+function App() {
+  return (
+    <div className="App">
+      <>
+      <ToastContainer />
+      <Container>
+        <Header />
+        <Row>
+          <Col md={4}>
+            <Menus />
+          </Col>
+          <Col md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="add-course" element={<AddCourse />} exact />
+              <Route path="view-courses" element={<AllCourses />} exact />
+              <Route path="contact" element={<Contact />} exact />
+              <Route path="about" element={<About />} exact />
+              <Route path="order-summary" element={<OrderSummary/>} exact/>
+              <Route path='courses' element={<Courses/>}>
+                <Route index element={<FeaturedCourses/>}/>
+                <Route path='featured' element={<FeaturedCourses/>}/>
+                <Route path='new' element={<NewCourses/>}/>
+              </Route>
+              <Route path='users' element={<Users/>}/>
+              <Route path='users/1' element={<UserDetails/>}/>
+              <Route path='users/2' element={<UserDetails/>}/>
+              <Route path='users/3' element={<UserDetails/>}/>
+              <Route path="*" element={<NoMatch/>} exact/>
+              
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+------------------------------------App.js-------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import { Contact } from "./components/Contact";
+import { About } from "./components/About";
+import { OrderSummary } from "./components/OrderSummary";
+import { NoMatch } from "./components/NoMatch";
+import { Courses } from "./components/Courses";
+import { FeaturedCourses } from "./components/FeaturedCourses";
+import { NewCourses } from "./components/NewCourses";
+import { Users } from "./components/Users";
+import { UserDetails } from "./components/UserDetails";
+function App() {
+  return (
+    <div className="App">
+      <>
+        <ToastContainer />
+        <Container>
+          <Header />
+          <Row>
+            <Col md={4}>
+              <Menus />
+            </Col>
+            <Col md={8}>
+              <Routes>
+                <Route path="/" element={<Home />} exact />
+                <Route path="add-course" element={<AddCourse />} exact />
+                <Route path="view-courses" element={<AllCourses />} exact />
+                <Route path="contact" element={<Contact />} exact />
+                <Route path="about" element={<About />} exact />
+                <Route path="order-summary" element={<OrderSummary />} exact />
+                <Route path="courses" element={<Courses />}>
+                  <Route index element={<FeaturedCourses />} />
+                  <Route path="featured" element={<FeaturedCourses />} />
+                  <Route path="new" element={<NewCourses />} />
+                </Route>
+                <Route path="users" element={<Users />} />
+                <Route path="users/:userId" element={<UserDetails />} />
+                <Route path="*" element={<NoMatch />} exact />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+---------------------------------------Admin.js------------------------------
+export const Admin=()=>{
+    return <div>Admin User</div>
+}
+-----------------------App.js-------------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import { Contact } from "./components/Contact";
+import { About } from "./components/About";
+import { OrderSummary } from "./components/OrderSummary";
+import { NoMatch } from "./components/NoMatch";
+import { Courses } from "./components/Courses";
+import { FeaturedCourses } from "./components/FeaturedCourses";
+import { NewCourses } from "./components/NewCourses";
+import { Users } from "./components/Users";
+import { UserDetails } from "./components/UserDetails";
+import {Admin} from './components/Admin'
+function App() {
+  return (
+    <div className="App">
+      <>
+        <ToastContainer />
+        <Container>
+          <Header />
+          <Row>
+            <Col md={4}>
+              <Menus />
+            </Col>
+            <Col md={8}>
+              <Routes>
+                <Route path="/" element={<Home />} exact />
+                <Route path="add-course" element={<AddCourse />} exact />
+                <Route path="view-courses" element={<AllCourses />} exact />
+                <Route path="contact" element={<Contact />} exact />
+                <Route path="about" element={<About />} exact />
+                <Route path="order-summary" element={<OrderSummary />} exact />
+                <Route path="courses" element={<Courses />}>
+                  <Route index element={<FeaturedCourses />} />
+                  <Route path="featured" element={<FeaturedCourses />} />
+                  <Route path="new" element={<NewCourses />} />
+                </Route>
+                <Route path="users" element={<Users />} />
+                <Route path="users/:userId" element={<UserDetails />} />
+                <Route path='users/admin' element={<Admin/>}/>
+                <Route path="*" element={<NoMatch />} exact />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+-----------------------App.js----------------------------------------------------------
+// import logo from './logo.svg';
+import "./App.css";
+import { Header } from "./components/Header";
+// import {Button} from 'reactstrap'
+import { ToastContainer, toast } from "react-toastify";
+import { Col, Container, Row } from "reactstrap";
+import { Menus } from "./components/Menus";
+import { Home } from "./components/Home";
+import { Routes, Route } from "react-router-dom";
+
+import { Course } from "./components/Course";
+import { AllCourses } from "./components/AllCourses";
+import { AddCourse } from "./components/AddCourse";
+import { Contact } from "./components/Contact";
+import { About } from "./components/About";
+import { OrderSummary } from "./components/OrderSummary";
+import { NoMatch } from "./components/NoMatch";
+import { Courses } from "./components/Courses";
+import { FeaturedCourses } from "./components/FeaturedCourses";
+import { NewCourses } from "./components/NewCourses";
+import { Users } from "./components/Users";
+import { UserDetails } from "./components/UserDetails";
+import { Admin } from "./components/Admin";
+function App() {
+  return (
+    <div className="App">
+      <>
+        <ToastContainer />
+        <Container>
+          <Header />
+          <Row>
+            <Col md={4}>
+              <Menus />
+            </Col>
+            <Col md={8}>
+              <Routes>
+                <Route path="/" element={<Home />} exact />
+                <Route path="add-course" element={<AddCourse />} exact />
+                <Route path="view-courses" element={<AllCourses />} exact />
+                <Route path="contact" element={<Contact />} exact />
+                <Route path="about" element={<About />} exact />
+                <Route path="order-summary" element={<OrderSummary />} exact />
+                <Route path="courses" element={<Courses />}>
+                  <Route index element={<FeaturedCourses />} />
+                  <Route path="featured" element={<FeaturedCourses />} />
+                  <Route path="new" element={<NewCourses />} />
+                </Route>
+                <Route path="users" element={<Users />}>
+                  <Route path=":userId" element={<UserDetails />} />
+                  <Route path="admin" element={<Admin />} />
+                </Route>
+                <Route path="*" element={<NoMatch />} exact />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    </div>
+  );
+}
+
+export default App;
+--------------------------------Users.js----------------------------------------
+import { Outlet } from "react-router-dom"
+
+ export const Users=()=>{
+    return(
+        <div>
+            <h2>User 1</h2>
+            <h2>User 2</h2>
+            <h2>User 3</h2>
+            <Outlet/>
+        </div>
+    )
+ }
+-------------------------Users.js with links-------------------------------------
+import { Link, Outlet } from "react-router-dom";
+
+export const Users = () => {
+  return (
+    <div>
+      <nav style={{padding:20,fontSize:20}}>
+        <Link to="1">User 1</Link>
+        <Link to="2" style={{marginLeft:8}}>User 2</Link>
+        <Link to="3" style={{marginLeft:8}}>User 3</Link>
+      </nav>
+
+      <Outlet />
+    </div>
+  );
+};
+------------------------------------url params UserDetails.js----------------------
+import { useParams } from "react-router-dom"
+
+export const UserDetails=()=>{
+    const params=useParams()
+    const userId=params.userId
+    return <div>Details About User {userId}</div>
+---------------------------url params with destructuring-------------------------
+import { useParams } from "react-router-dom"
+
+export const UserDetails=()=>{
+    const {userId}=useParams()
+    // const userId=params.userId
+    return <div>Details About User {userId}</div>
+}
+}
+--------------------search params users.js-----------------------------------------
+import { Link, Outlet, useSearchParams } from "react-router-dom";
+import { Button } from "reactstrap";
+
+export const Users = () => {
+    const [searchParams,setSearchParams]=useSearchParams()
+    const showActiveUsers=searchParams.get('filter')=='active'
+  return (
+    <div>
+      <nav style={{padding:20,fontSize:20}}>
+        <Link to="1">User 1</Link>
+        <Link to="2" style={{marginLeft:8}}>User 2</Link>
+        <Link to="3" style={{marginLeft:8}}>User 3</Link>
+      </nav>
+
+      <Outlet />
+      <div>
+        <Button color='success' onClick={()=>setSearchParams({filter:'active'})}>Active Users</Button>
+        <Button color='success' onClick={()=>setSearchParams({})}>Reset Filter</Button>
+      </div>
+      {
+        showActiveUsers?<h2>showing active users</h2>:<h2>showing all users</h2>
+      }
+    </div>
+  );
+};
+--------------------------Relative links-----------------------------------------------
+Relative links or relative paths don't start with '/' and will inherit the closest route in 
+which they are rendered.They are very useful for linking deeply nested paths.
+
+Absolute links make more sense with primary navigation bar.
+-------------------------------Lazy loading----------------------------------------------
+Lazyloading is a technique where components not required on the home page can be split into 
+seperate code bundles and downloaded only when the user navigates to that page.It can be thought
+of as incrementally downloading the application.It helps reduce initial download time
+thereby improving performance.
+--------------------------------
+
+
+
+
+
+
+
+
+
+
