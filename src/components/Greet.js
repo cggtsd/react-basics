@@ -3,7 +3,8 @@
 //     return <h1>Hello React</h1>
 // }
 
-export const Greet = ({name,designation,children})=>{
+export const Greet = (props)=>{
+    const {name,designation,children} = props
     console.log(name+ ' '+designation+' '+children)
     return (
         <div>
