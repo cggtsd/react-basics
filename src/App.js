@@ -15,6 +15,11 @@ import {Welcome} from './components/Welcome';
 import './myAppStyles.css'
 import styles from './myAppStyles.module.css'
 import {Form} from './components/Form'
+import { FormDetail } from './components/FormDetail';
+import { FragmentDemo } from './components/FragmentDemo';
+import { Table } from './components/Table';
+import { FragmentList } from './components/FragmentList';
+import LifeCycleA from './components/LifeCycleA';
 function App() {
 
   return( 
@@ -44,7 +49,12 @@ function App() {
     {/* <Inline/>
     <h1 className='error'>Error</h1>
     <h1 className={styles.success}>Success</h1> */}
-    <Form/>
+    {/* <Form/> */}
+     {/* <FormDetail/> */}
+     {/* <FragmentDemo/> */}
+     {/* <Table/> */}
+     {/* <FragmentList/> */}
+     <LifeCycleA/>
    </div>
   );
   
