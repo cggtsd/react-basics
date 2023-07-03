@@ -1,0 +1,79 @@
+when we create a react component,the component goes through several stages in its life cycle
+
+React provides us with built in methods that we can override at particular stages in the life cycle
+Life Cycle Methods Available for a Class Component
+
+These methods do not exists in a functional component
+With the new proposal of hooks there is useState hook which partially relates to lifecycle hooks
+
+knowing when to use which lifecycle method is crucial to properly understanding how to
+work with react.
+---------------------------------------------------------------------------
+1.constructor:-
+Two important points to keep in mind when it comes to defining your own constructor
+1)call special function called super() this will call the base class constructor.In a component we have access to this.props only after we have initially called super() passing in
+props as argument
+2)constructor is also the only place where we are expected to change or set the state by directly overriding this.state fields in all other scenarios you have to use this.setState()
+----------------------------------------------------------------------------------------
+getDerivedStateFromProps() classifies as a rarely used life cycle method
+
+Lets say you have a component ,initial state of the component depends on the props bieng 
+passed to the component,In such a scenario this method can be used to set the state.
+Since this method is a static method it does not have access to the this keyword.
+So you cannot call this.setState() within this particular method.
+
+Instead we simply have to return an object that represents the new state of the component
+
+fetching data from an endpoint (side effects)
+getDerivedStateFromProps use it when state depends upon on changes in props overtime 
+and do not cause any side effects
+---------------------------------------------------------------------------------------
+render() method is the only required method in class component
+In the render() method we simply read this.props and this.state and returns JSX which describes the UI
+its a pure function for the given props and state it should always render the same UI
+
+Since it is the render() method JSX which also contains the other children components
+right after the parent render() method 
+--------------------------------------------------------------------------------------
+componentDidMount() this method will be called only once in the whole lifecycle of the given
+component
+So componentDidMount() is a good place to perform initialisation that requires DOM nodes
+and also load data by making network request
+-----------------------------------------------------------------------------------------
+Updating LifeCycle Methods are called when a component is being rerendered because of 
+changes to either props or state
+----------------------------
+static getDerivedStateFromProps(props,state) this is a static method which receives props and
+state as its parameter and has to return either null or an object that represents updated state of the component.This method is used when the state depends on the props of the component
+this method is not the more really used method in the updating phase
+
+shouldComponetUpdate() receives the updated props and state and the purpose of this method
+is clear from its name it dictates if the component should re-render or not.
+
+A default all class components will rerender whenever the props they receive or their state changes .This method can prevent that default behavior by returning false
+Compare the existing props and state values with the next prop and state values and return true or false to let react know whether the component should update or not.
+Classified as rarely used method
+-----------------------------------------------------------------------------------
+getSnapshotBeforeUpdate() rarely used method.You will use this method to capture some 
+information from the DOM.
+For example read the user's scroll position and after the update maintain that scroll 
+position by performing some calculation
+used to read the current DOM state and returns a value or null
+---------------------------------------------------------------------------------
+componentDidUpdate(prevProps,prevState,snapshot) called after the render is finished 
+in the re-render cycle.this means that you can be sure that the component and all its 
+sub components have properly rendered itselfs after the update.This method accepts three
+parameters .
+This method is guaranteed to be called only once in each re-render cycle.
+cause side effects i.e you can make ajax calls.But before making the call you need to comapre
+the previous props with the new props and then decide whether to make the ajax call or not
+If you are not comapring ,you are making unwanted requests which is not really a good idea.
+------------------------------------------------------------------------
+componentWillUnMount():- In this method you can perform some clean up task 
+do not call the setState method that is simply because the component is never rerendered
+after it has been unmounted
+
+
+
+
+

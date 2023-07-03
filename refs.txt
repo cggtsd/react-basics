@@ -1,0 +1,135 @@
+Refs makes it possible to access dom nodes directly within react.
+common use case focussing a text input
+For example suppose we have a login form as soon as the page is loaded let's say
+by default we want username input field to be focused.This can be aceived with refs
+second use case is to fetch the input value
+
+need a ref from parent component to a child component,component however needs to be a
+class component
+refs cannot be attached to functional components
+refs to dom elements and class components in react
+Forwarding Ref is a technique of automatically passing a ref from a component
+to one of its children
+every functional component receives props as its parameter
+when component is passed as a parameter to forwardRef() method .It receives ref attribute
+as its second parameter
+we can use ref parameter and pass it as a value to yhe ref attribute on the native 
+input element
+this ref parameter will point to the value of the ref attribute from parent component
+in other words ref is being forwarded from parent component to the native input element
+
+This concept is used while working with libraries or dealing with higher order components
+------------------------------------React Portals----------------------------
+Provide way to render children into a dom node that exists outside the dom
+hierarchy of the parent component
+React portals provide a way to break out of this som tree(id=root)
+you can render a component onto a dom node that is not under the root element
+One of the use cases is having to deal with parent component css when the child component
+is a modal,popup or a tool tip
+sometimes it is useful to insert the child into a different location in the dom and portals
+help you do that
+
+Event Bubbling
+---------------
+Even though portal can be anywhere in the dom tree.It behaves like a normal react child
+in every other way
+This includes event bubbling.so an event fired from inside a portal will propagate to ancestors in the containing react tree even if those elements are not ancestors in the dom
+tree
+
+
+https://codesandbox.io/s/00254q4n6p
+https://codepen.io/gaearon/pen/jGBWpE
+----------------------------------------------------------------------------------
+Runtime errors during rendering could put the application in broken state
+React basically unmounts the whole react component tree
+what is required catch the errors anywhere in the component tree and display a fallback UI
+This is where error boundaries take the spotlight
+what we want is if a particular component throws an error only that component
+should fallback into a UI and the remaining components should be uneffected
+this can be acheived with an error boundary
+ErrorBoundary will ctach the error and display a fallabck ui
+ErrorBoundary catch errors during rendering in lifecycle methods and in the constructors
+of the whole tree below them however they do not catch errors inside event handlers
+if you have an onClick handler and want to catch an error you just need to use the
+regular try-catch statements and not ErrorBoundary
+--------------------------------------------------------------------------
+there is a need to share common functionality between components without repeating code
+and thats where the concept of higher order components come into picture
+import React from 'react'
+
+const UpdatedComponent=OriginalComponent=>{
+    class NewComponent extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state={
+                count:0
+            }
+        }
+        incrementCount=()=>{
+            this.setState(prevState=>{
+                return {
+                    count:prevState.count+1
+                }
+            })
+        }
+     render(){
+        
+        // return <OriginalComponent name='CGG'/>
+        return <OriginalComponent 
+        count={this.state.count}
+        incrementCount={this.incrementCount}/>
+     }
+    }
+    return NewComponent
+}
+
+export default UpdatedComponent
+
+props is passed to the HOC and not to the WrappedComponnet.
+To fix this issue we need to pass down the remaining props to the wrapped component
+using spread operator
+HOC adds to props to the wrapped component and simply passes down whatever
+remaining props have been specified in this case it passes down the name prop
+
+when you create HOCs please make sure to pass down the rest of the props
+
+Passing parameters to the HOC function
+import React from 'react'
+
+const withCounter=WrappedComponent=>{
+    class WithCounter extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state={
+                count:0
+            }
+        }
+        incrementCount=()=>{
+            this.setState(prevState=>{
+                return {
+                    count:prevState.count+1
+                }
+            })
+        }
+     render(){
+        
+        // return <OriginalComponent name='CGG'/>
+        console.log(this.props.name);
+        return <WrappedComponent 
+        count={this.state.count}
+        incrementCount={this.incrementCount}
+        {...this.props}/>
+     }
+    }
+    return WithCounter
+}
+
+export default withCounter
+
+Come accross HOC in popular libraries like ConnectHOC in redux
+with router in react-router
+
+with styles in MaterialUi and so on
+----------------------------------------------------------------
+Another pattern to share code among components which is Render prop pattern 
+  
