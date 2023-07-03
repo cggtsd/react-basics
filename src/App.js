@@ -20,6 +20,14 @@ import { FragmentDemo } from './components/FragmentDemo';
 import { Table } from './components/Table';
 import { FragmentList } from './components/FragmentList';
 import LifeCycleA from './components/LifeCycleA';
+import PureComp from './components/PureComp';
+import ParentComp from './components/ParentComp';
+import { WelcomeRefDemo } from './components/WelcomeRefDemo';
+import FocusInput from './components/FocusInput';
+import FRParentinput from './components/FRParentinput';
+import ErrorBoundary from './components/ErrorBoundary';
+import {Hero} from './components/Hero'
+import { PortalDemo } from './components/PortalDemo';
 function App() {
 
   return( 
@@ -54,7 +62,22 @@ function App() {
      {/* <FragmentDemo/> */}
      {/* <Table/> */}
      {/* <FragmentList/> */}
-     <LifeCycleA/>
+     {/* <LifeCycleA/> */}
+     {/* <PureComp/> */}
+     {/* <ParentComp/> */}
+     {/* <WelcomeRefDemo/> */}
+     {/* <FocusInput/> */}
+     {/* <FRParentinput/> */}
+     {/* <ErrorBoundary>
+      <Hero heroName='Batman'/>
+      </ErrorBoundary>
+      <ErrorBoundary>
+      <Hero heroName='Superman'/>
+      </ErrorBoundary>
+      <ErrorBoundary>
+      <Hero heroName='Joker'/>
+     </ErrorBoundary> */}
+     <PortalDemo/>
    </div>
   );
   
