@@ -28,6 +28,14 @@ import FRParentinput from './components/FRParentinput';
 import ErrorBoundary from './components/ErrorBoundary';
 import {Hero} from './components/Hero'
 import { PortalDemo } from './components/PortalDemo';
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverCounter';
+import ClickCounterTwo from './components/ClickCounterTwo';
+import HoverCounterTwo from './components/HoverCounterTwo';
+import User from './components/User'
+import CounterTwo from './components/CounterTwo';
+import ComponentC from './components/ComponentC';
+import { UserProvider } from './components/userContext';
 function App() {
 
   return( 
@@ -77,7 +85,28 @@ function App() {
       <ErrorBoundary>
       <Hero heroName='Joker'/>
      </ErrorBoundary> */}
-     <PortalDemo/>
+     {/* <PortalDemo/> */}
+     {/* <ClickCounter name='CGG'/>
+     <HoverCounter name='XYZ'/> */}
+     {/* <ClickCounterTwo/>
+     <HoverCounterTwo/>
+     <User render={(isLoggedIn)=>isLoggedIn?'CGG':'Guest'} /> */}
+     {/* <CounterTwo>
+     {(count,incrementCount)=>
+     (<ClickCounterTwo count={count} incrementCount={incrementCount}/>)
+     }
+     </CounterTwo>
+     
+     <CounterTwo >
+     {(count,incrementCount)=>
+        (<HoverCounterTwo count={count} incrementCount={incrementCount}/>)
+      }
+     </CounterTwo>  */}
+     {/* 2 */}
+     <UserProvider value='CGG'>
+     <ComponentC/>
+     </UserProvider>
+     
    </div>
   );
   
